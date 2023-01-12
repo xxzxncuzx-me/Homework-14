@@ -3,7 +3,11 @@
 let str = '';
 
 for (let i = 20; i <= 30; i += 0.5) {
-    str += i + ', ';
+    if (i === 30) {
+        str += i;
+    } else {
+        str += i + ', ';
+    }
 }
 console.log(str)
 
@@ -12,7 +16,11 @@ console.log(str)
 let hryvnia = '';
 
 for (let i = 10; i <= 100; i += 10) {
-    hryvnia += i * 27 + '₴, ';
+    if (i === 100) {
+        hryvnia += i * 27 + '₴';
+    } else {
+        hryvnia += i * 27 + '₴, ';
+    }
 }
 console.log(hryvnia)
 
@@ -23,7 +31,7 @@ const n = 3500;
 
 for (let i = 1; i <= 100; i++) {
     if (i ** 2 > n) {
-        continue
+        break
     } else {
         num += i + ', ';
     }
@@ -32,10 +40,9 @@ console.log(num);
 
 // Дане ціле число. З'ясувати, чи є воно простим (простим називається число, більше 1, які не мають інших дільників крім 1 і себе).
 
-const x = 41;
+const x = 11;
 const xModule = Math.abs(x);
 let arr = '';
-let isPrime = true;
 
 if (xModule === 1) {
     console.log("1 не є ані простим, ані складеним");
@@ -43,17 +50,15 @@ if (xModule === 1) {
     for (let i = 2; i <= xModule; i++) {
         if (xModule % i === 0) {
             arr += i;
-            if (arr.length == 1) {
-                isPrime = false;
-            }
         }
     }
-    if (isPrime) {
+    if (arr.length === 1 ) {
         console.log(`${x} це просте число`);
     } else {
         console.log(`${x} це складене число`);
     }
 }
+
 
 // Дане деяке число. Визначити, чи можна одержати це число шляхом зведення числа 3 у деякий ступінь. (Наприклад, числа 9, 81 можна отримати, а 13 - не можна).
 
@@ -63,6 +68,7 @@ let posibilty = false;
 for (let i = 0; i <= y; i++) {
     if (y === 3 ** i) {
         posibilty = true;
+        break
     }
 }
 
