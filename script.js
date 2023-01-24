@@ -27,13 +27,18 @@ console.log(hryvnia)
 // Дане ціле число. Вивести всі цілі числа від 1 до 100, квадрат яких не перевищує числа N.
 
 let num = '';
-const n = 3500;
+const n = 3900;
 
 for (let i = 1; i <= 100; i++) {
     if (i ** 2 > n) {
         break
     } else {
-        num += i + ', ';
+        if((i + 1) ** 2 > n) {
+          num += i;  
+        }
+        else {
+           num += i + ', '; 
+        }
     }
 }
 console.log(num);
@@ -42,17 +47,18 @@ console.log(num);
 
 const x = 11;
 const xModule = Math.abs(x);
-let arr = '';
 
 if (xModule === 1) {
     console.log("1 не є ані простим, ані складеним");
 } else {
-    for (let i = 2; i <= xModule; i++) {
+    const arr = [];
+    for (let i = 2; i < xModule; i++) {
         if (xModule % i === 0) {
-            arr += i;
+            arr.push(i);
+            break
         }
     }
-    if (arr.length === 1 ) {
+    if (arr.length === 0 ) {
         console.log(`${x} це просте число`);
     } else {
         console.log(`${x} це складене число`);
